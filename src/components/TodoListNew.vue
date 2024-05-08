@@ -58,6 +58,16 @@ export default {
                 return;
             }
 
+            if (state.date < today) {
+                console.error('Error: 오늘 이후의 날짜를 선택해주세요');
+                return;
+            }
+
+            if (state.categoryId === '') {
+                console.error('Error: 카테고리를 선택해주세요');
+                return;
+            }
+
             const newTodo = {
                 title: state.job,
                 deadline: state.date,
