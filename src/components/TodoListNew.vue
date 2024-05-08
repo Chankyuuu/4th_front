@@ -55,16 +55,19 @@ export default {
         const onAddTodo = async () => {
             if (state.job.trim().length === 0) {
                 console.error('Error: 할 일을 입력해주세요');
+                alert('할 일을 입력해주세요');
                 return;
             }
 
             if (state.date < today) {
                 console.error('Error: 오늘 이후의 날짜를 선택해주세요');
+                alert('오늘 이후의 날짜를 선택해주세요');
                 return;
             }
 
             if (state.categoryId === '') {
                 console.error('Error: 카테고리를 선택해주세요');
+                alert('카테고리를 선택해주세요');
                 return;
             }
 
