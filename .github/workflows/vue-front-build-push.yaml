@@ -36,4 +36,4 @@ jobs:
         file: ./Dockerfile
         push: true
         # DOKER BUILD -T KIMHYEYEON2/IMAGE/TAGS
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/1teamvueapp:${{github.sha}}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/1teamvueapp:1.0
