@@ -37,15 +37,20 @@ jobs:
         push: true
         # DOKER BUILD -T KIMHYEYEON2/IMAGE/TAGS
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/1teamvueapp:1.0
-    # Docker Container Stop and remove
+     # Docker Container Stop and remove
     - name: Stop and remove container
-      run: docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
+      run: |
+        docker stop $(docker ps -a -q) || true
+        docker rm $(docker ps -a -q) || true
 
-    # DOKER IMAGE pull
+    # Pull the latest image
     - name: Pull Image
       run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/1teamvueapp:1.0
 
-    # docker container run
+    # Remove dangling images (optional)
+    - name: Remove dangling images
+      run: docker image prune -f
+
+    # Run Container
     - name: Run Container
       run: docker run -d -p 8080:80 ${{ secrets.DOCKERHUB_USERNAME }}/1teamvueapp:1.0
-
