@@ -37,4 +37,5 @@ jobs:
         push: true
         # DOKER BUILD -T KIMHYEYEON2/IMAGE/TAGS
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/1teamvueapp:1.0
+        
      
